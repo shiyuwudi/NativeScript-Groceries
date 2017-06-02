@@ -17,7 +17,7 @@ Button, TextField {
 }
 
 .submit-button {
-  background-color: #CB1D00;
+  background-color: green;
   color: white;
   margin-top: 20;
 }
