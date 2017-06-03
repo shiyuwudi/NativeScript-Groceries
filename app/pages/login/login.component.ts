@@ -1,8 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core"; // OnInit: ts类接口，需要实现。
 import { Router } from "@angular/router";
-import { User, MockUser, NotAUser } from "../../shared/user/user";
+import { User, MockUser, NotAUser, GroceriesUser } from "../../shared/user/user";
 import { UserService } from "../../shared/user/user.service";
-import { Response } from '@angular/http';
+import { Response } from "@angular/http";
+import { Page } from "ui/page"; // tsconfig配置省略了前面的路径
+import { Color } from "color";
+import { View } from "ui/core/view";
 
 @Component({
   selector: "my-app",
@@ -10,16 +13,24 @@ import { Response } from '@angular/http';
   templateUrl: "pages/login/login.html", // 模板html，也可以内联。
   styleUrls: ["pages/login/login-common.css", "pages/login/login.css"], // 样式
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   user: User;
   isLoggingIn = true;
+  @ViewChild("container") container: ElementRef; // 连线儿呢...
 
   // 构造器，在这里实例化上面声明的属性
   // 如果属性作为参数，代表声明，实例化工作交给外部：包括依赖注入（typescript构造器语法）
   // router不需要在这个组件的providers进行注入，原因是已经在上层的app.module.ts里import了。
-  constructor(private userService: UserService, private router: Router) {
-    this.user = new MockUser();
+  // page 不需要注入，原因是太常用，nativescript已经全局自动注入了。
+  constructor(private userService: UserService, private router: Router, private page: Page) {
+    this.user = new GroceriesUser();
+  }
+
+  // 生命周期钩子，初始化时调用。
+  ngOnInit() {
+    this.page.statusBarStyle = "light";
+    this.page.backgroundImage = "res://bg_login";
   }
 
   submit() {
@@ -57,6 +68,11 @@ export class LoginComponent {
 
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
+    const container = <View>this.container.nativeElement; // 强转成View
+    container.animate({
+      backgroundColor: this.isLoggingIn ? new Color("white") : new Color("#301217"),
+      duration: 400,
+    });
   }
 
 }

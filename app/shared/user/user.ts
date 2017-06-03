@@ -8,4 +8,9 @@ export class MockUser extends User {
     password = "123456";
 }
 
+export class GroceriesUser extends User {
+    email = "user@nativescript.org";
+    password = "password";
+}
+
 export class NotAUser {}

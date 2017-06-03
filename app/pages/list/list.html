@@ -1,1 +1,9 @@
-<Label text="Hello World!!"></Label>
+<GridLayout>
+    <!--ListView.items 数据数组 ListView.ng-template:列表中的每一个单元格-->
+  <ListView [items]="groceryList" class="small-spacing">
+      <!--let-a="b" 声明变量a的名字为b，方便在循环中引用-->
+    <ng-template let-item="item">
+      <Label [text]="item.name" class="medium-spacing"></Label>
+    </ng-template>
+  </ListView>
+</GridLayout>
