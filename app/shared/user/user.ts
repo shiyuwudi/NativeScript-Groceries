@@ -1,6 +1,11 @@
+import * as EmailValindator from "email-validator";
+
 export class User {
     email: string;
     password: string;
+    isValidEmail() {
+        return EmailValindator.validate(this.email);
+    }
 }
 
 export class MockUser extends User {

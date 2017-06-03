@@ -11,6 +11,24 @@ export class GroceryListService {
 
     constructor(private http: Http) {}
 
+    add(name: string) {
+        let headers = new Headers();
+        headers.append("Authorization", "Bearer " + Config.token); // 授权令牌
+        headers.append("Content-Type", "application/json");
+        const options = { headers };
+        const url = Config.apiUrl + "Groceries";
+        const params = {
+            Name: name,
+        };
+        const body = JSON.stringify(params);
+        return this.http.post(url, body, options)
+        .map(res => res.json())
+        .map(json => {
+            return new Grocery(json.Result.Id, name);
+        })
+        .catch(this.handleErrors);
+    }
+
     load() {
         let headers = new Headers();
         headers.append("Authorization", "Bearer " + Config.token); // 授权令牌

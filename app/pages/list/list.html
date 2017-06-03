@@ -1,9 +1,49 @@
-<GridLayout>
-    <!--ListView.items 数据数组 ListView.ng-template:列表中的每一个单元格-->
-  <ListView [items]="groceryList" class="small-spacing">
-      <!--let-a="b" 声明变量a的名字为b，方便在循环中引用-->
+
+<ActionBar title="杂货清单">
+  <ActionItem
+  text="分享"
+  (tap)="share()"
+  android.systemIcon="ic_menu_share_holo_dark"
+  ios.systemIcon="9"
+  ios.position="right"
+  >
+  </ActionItem>
+</ActionBar>
+
+<!--rows：上下布局，columns：左右布局-->
+<!--auto：自适应，*（星号）：剩下的地方归我-->
+<GridLayout rows="auto, *">
+
+  <GridLayout row="0" columns="*, auto" class="add-bar">
+    <TextField
+    #groceryTextField
+    hint="Enter a grocery item"
+    col="0"
+    [(ngModel)]="grocery">
+    </TextField>
+    <Image src="res://add" col="1" (tap)="add()"></Image>
+  </GridLayout>
+
+  <!--ListView.items 数据数组 ListView.ng-template:列表中的每一个单元格-->
+  <ListView
+  [items]="groceryList"
+  row="1"
+  class="small-spacing"
+  [class.visible]="listLoaded"
+  >
+    <!--let-a="b" 声明变量a的名字为b，方便在循环中引用-->
     <ng-template let-item="item">
       <Label [text]="item.name" class="medium-spacing"></Label>
     </ng-template>
   </ListView>
+
+  <ActivityIndicator
+  [busy]="isLoading"
+  [visibility]="isLoading ? 'visible' : 'collapse'"
+  row="1"
+  horizontalAlignment="center"
+  verticalAlignment="center"
+  >
+  </ActivityIndicator>
+
 </GridLayout>

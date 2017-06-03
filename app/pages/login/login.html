@@ -2,9 +2,9 @@
 <StackLayout #container>
   <Image src="res://logo_login" stretch="none" horizontalAlignment="center"></Image>
 
-  <TextField hint="邮箱地址" keyboardType="email" [(ngModel)]="user.email"
+  <TextField #email hint="邮箱地址" keyboardType="email" [(ngModel)]="user.email"
     autocorrect="false" autocapitalizationType="none"></TextField>
-  <TextField hint="密码" secure="true" [(ngModel)]="user.password"></TextField>
+  <TextField #password hint="密码" secure="true" [(ngModel)]="user.password"></TextField>
 
   <Button [text]="isLoggingIn ? '登录' : '提交注册'" class="submit-button" (tap)="submit()"></Button>
   <Button [text]="isLoggingIn ? '没有账户？' : '返回登录'" (tap)="toggleDisplay()"></Button>
