@@ -12,6 +12,27 @@ export class UserService {
 
     constructor(private http: Http) {}
 
+    login(user: User) {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        const url = Config.apiUrl + "oauth/token";
+        const params = {
+            username: user.email,
+            password: user.password,
+            grant_type: "password",
+        };
+        const body = JSON.stringify(params);
+        const options = { headers: headers };
+        return this.http.post(url, body, options)
+        .map((response: Response) => response.json())
+        .do(json => {
+            // 保存登录令牌
+            Config.token = json.Result.access_token;
+        })
+        .catch(this.handleErrors);
+    }
+
     register(user: User) {
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
@@ -27,7 +48,7 @@ export class UserService {
         return this.http.post(url, body, options).catch(this.handleErrors);
     }
 
-    handleErrors(error: Response) {
+    private handleErrors(error: Response) {
         console.log(JSON.stringify(error.json()));
         return Observable.throw(error);
     }
