@@ -28,3 +28,18 @@ ListView {
 TextField {
   color: white;
 }
+
+.delete-container {
+  background-color: #CB1D00;
+  padding: 5;
+  height: 20;
+  margin-right: 8;
+}
+
+.odd-line {
+  background-color: brown;
+}
+
+.even-line {
+  background-color: gray;
+}

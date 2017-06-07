@@ -11,11 +11,16 @@ export class GroceryListService {
 
     constructor(private http: Http) {}
 
-    add(name: string) {
+    getOptions() {
         let headers = new Headers();
         headers.append("Authorization", "Bearer " + Config.token); // 授权令牌
         headers.append("Content-Type", "application/json");
         const options = { headers };
+        return options;
+    }
+
+    add(name: string) {
+        const options = this.getOptions();
         const url = Config.apiUrl + "Groceries";
         const params = {
             Name: name,
@@ -44,6 +49,14 @@ export class GroceryListService {
             });
             return groceryList;
         })
+        .catch(this.handleErrors);
+    }
+
+    delete(id) {
+        const options = this.getOptions();
+        const url = `${Config.apiUrl}Groceries/${id}`;
+        return this.http.delete(url, options)
+        .map(resp => resp.json())
         .catch(this.handleErrors);
     }
 

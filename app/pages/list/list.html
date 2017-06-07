@@ -32,8 +32,13 @@
   [class.visible]="listLoaded"
   >
     <!--let-a="b" 声明变量a的名字为b，方便在循环中引用-->
-    <ng-template let-item="item">
-      <Label [text]="item.name" class="medium-spacing"></Label>
+    <ng-template let-item="item" let-odd="odd">
+      <GridLayout columns="*, auto">
+        <Label col="0" [text]="item.name" class="medium-spacing"></Label>
+        <StackLayout col="1" class="delete-container" (tap)="delete(item)">
+          <Image src="res://delete"></Image>
+        </StackLayout>
+      </GridLayout>
     </ng-template>
   </ListView>
 

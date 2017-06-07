@@ -66,4 +66,14 @@ export class ListComponent implements OnInit {
         };
         this.groceryListService.add(this.grocery).subscribe(onSuccess, onFailure);
     }
+
+    delete(item) {
+        const id = item.id;
+        this.groceryListService.delete(id).subscribe(data => {
+            if (data.Result === 1) {
+                // 删除成功
+                this.groceryList = this.groceryList.filter(grocery => grocery.id !== id);
+            }
+        });
+    }
 }
