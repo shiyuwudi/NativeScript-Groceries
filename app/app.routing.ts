@@ -1,10 +1,10 @@
-import { LoginComponent } from './pages/login/login.component';
-import { ListComponent } from './pages/list/list.component';
+import { TabComponent } from "./pages/tab/tab.component";
+import { ListComponent } from "./pages/list/list.component";
 
 export const routes = [
   {
     path: "",
-    component: LoginComponent,
+    component: TabComponent,
   },
   {
     path: "list",
@@ -13,6 +13,6 @@ export const routes = [
 ];
 
 export const navigatableComponents = [
-  LoginComponent,
+  TabComponent,
   ListComponent,
 ];

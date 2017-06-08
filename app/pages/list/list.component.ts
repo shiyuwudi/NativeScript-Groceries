@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, Input } from "@angular/core";
 import { TextField } from "ui/text-field";
 import * as SocialShare from "nativescript-social-share";
 
@@ -14,10 +14,14 @@ import { GroceryListService } from "../../shared/grocery/grocery-list.service";
 })
 export class ListComponent implements OnInit {
 
+    @Input() public selectedIndex = 0;
+
     private groceryList: Grocery[] = [];
     private grocery = "";
     private isLoading = false;
     private listLoaded = false;
+
+    private num = "sss";
 
     @ViewChild("groceryTextField") private groceryTextField: ElementRef;
 
