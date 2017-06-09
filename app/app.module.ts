@@ -16,7 +16,7 @@ import { routes, navigatableComponents } from "./app.routing";
     NativeScriptRouterModule, // 路由
     NativeScriptRouterModule.forRoot(routes), // 同上
   ],
-  // app中要用到的所有组件
+  // app中要用到的所有组件1
   declarations: [
     AppComponent,
     ...navigatableComponents,
