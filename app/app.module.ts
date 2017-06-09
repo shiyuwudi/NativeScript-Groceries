@@ -5,7 +5,7 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 import { AppComponent } from "./app.component";
-import { routes, navigatableComponents } from './app.routing';
+import { routes, navigatableComponents } from "./app.routing";
 
 @NgModule({
   // 父组件导入，子组件也可以使用
@@ -21,6 +21,6 @@ import { routes, navigatableComponents } from './app.routing';
     AppComponent,
     ...navigatableComponents,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

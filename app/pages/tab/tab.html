@@ -1,35 +1,8 @@
 <GridLayout rows="*, 49">
-  <list [selectedIndex]="selectedIndex"></list>
-  <GridLayout row="1" columns="*,*,*,*,*">
-    <GridLayout col="0" (tap)="onTap(0)">
-      <GridLayout rows="*, 15">
-          <Image row="0" [src]="selectedIndex === 0 ? 'res://apple' : 'res://banana'" class="tab-icon"></Image>
-          <Label row="1" text="首页" textWrap="true" class="tab-title" horizontalAlignment="center" [class.selected]="selectedIndex === 0"></Label>
-      </GridLayout>
-    </GridLayout>
-    <GridLayout col="1" (tap)="onTap(1)">
-      <GridLayout rows="*, 15">
-          <Image row="0" [src]="selectedIndex === 1 ? 'res://apple' : 'res://banana'" class="tab-icon"></Image>
-          <Label row="1" text="分类" textWrap="true" class="tab-title" horizontalAlignment="center" [class.selected]="selectedIndex === 1"></Label>
-      </GridLayout>
-    </GridLayout>
-    <GridLayout col="2" (tap)="onTap(2)">
-      <GridLayout rows="*, 15"> 
-          <Image row="0" [src]="selectedIndex === 2 ? 'res://apple' : 'res://banana'" class="tab-icon"></Image>
-          <Label row="1" text="附近" textWrap="true" class="tab-title" horizontalAlignment="center" [class.selected]="selectedIndex === 2"></Label>
-      </GridLayout>
-    </GridLayout>
-    <GridLayout col="3" (tap)="onTap(3)">
-      <GridLayout rows="*, 15"> 
-          <Image row="0" [src]="selectedIndex === 3 ? 'res://apple' : 'res://banana'" class="tab-icon"></Image>
-          <Label row="1" text="购物车" textWrap="true" class="tab-title" horizontalAlignment="center" [class.selected]="selectedIndex === 3"></Label>
-      </GridLayout>
-    </GridLayout>
-    <GridLayout col="4" (tap)="onTap(4)">
-      <GridLayout rows="*, 15"> 
-          <Image row="0" [src]="selectedIndex === 4 ? 'res://apple' : 'res://banana'" class="tab-icon"></Image>
-          <Label row="1" text="我的" textWrap="true" class="tab-title" horizontalAlignment="center" [class.selected]="selectedIndex === 4"></Label>
-      </GridLayout>
-    </GridLayout>
-  </GridLayout>
+  <list [idx]="selectedIndex"></list>
+  <tabbar
+  [selectedIndex]="selectedIndex"
+  (onTabTap)="onTap($event)"
+  [tabs]="tabs"
+  ></tabbar>
 </GridLayout>

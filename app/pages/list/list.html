@@ -1,15 +1,2 @@
-
-<ActionBar title="随便">
-  <ActionItem
-  text="分享"
-  (tap)="share()"
-  android.systemIcon="ic_menu_share_holo_dark"
-  ios.systemIcon="9"
-  ios.position="right"
-  >
-  </ActionItem>
-</ActionBar>
-
-<!--rows：上下布局，columns：左右布局-->
-<!--auto：自适应，*（星号）：剩下的地方归我-->
-<Label [text]="selectedIndex" textWrap="true"></Label>
+<ActionBar title="随便"></ActionBar>
+<Label [text]="idx" textWrap="true"></Label>

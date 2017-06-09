@@ -1,0 +1,8 @@
+<GridLayout row="1" columns="*,*,*,*,*">
+      <GridLayout *ngFor="let tab of tabs; let i=index" [col]="i" (tap)="onTap(i)">
+        <GridLayout rows="*, 15">
+            <Image row="0" [src]="selectedIndex === i ? tab.selectedImage : tab.image" class="tab-icon"></Image>
+            <Label row="1" [text]="tab.title" textWrap="true" class="tab-title" horizontalAlignment="center" [class.selected]="selectedIndex === i"></Label>
+        </GridLayout>
+      </GridLayout>
+</GridLayout>

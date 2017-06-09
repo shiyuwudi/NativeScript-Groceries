@@ -1,0 +1,13 @@
+.tab-icon {
+    width: 20;
+    height: 20;
+    margin: 5;
+}
+
+.tab-title {
+    font-size: 10;
+}
+
+.selected {
+    color: red;
+}
