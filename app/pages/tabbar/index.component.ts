@@ -1,12 +1,10 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
-import { StackLayout } from "ui/layouts/stack-layout";
-import { Label } from "ui/label";
-import { TabView, SelectedIndexChangedEventData, TabViewItem } from "ui/tab-view";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 @Component({
+  moduleId: module.id,
   selector: "tabbar",
-  templateUrl: "pages/tabbar/index.html",
-  styleUrls: ["pages/tabbar/index-common.css"],
+  templateUrl: "./index.html",
+  styleUrls: ["./index-common.css"],
 })
 export class TabbarComponent implements OnInit {
   @Input() private selectedIndex;
@@ -20,9 +18,7 @@ export class TabbarComponent implements OnInit {
 
   private allTabs = [];
 
-  public ngOnInit() {
-    
-  }
+  public ngOnInit() {}
 
   private onTap(index) {
     this.onTabTap.emit(index);
