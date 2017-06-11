@@ -1,8 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { TextField } from "ui/text-field";
-import * as SocialShare from "nativescript-social-share";
-import { Grocery } from "../../shared/grocery/grocery";
-import { GroceryListService } from "../../shared/grocery/grocery-list.service";
+import {Component} from "@angular/core";
 
 @Component({
     selector: "tab",
@@ -37,7 +33,6 @@ export class TabComponent  {
             selectedImage: "res://pear",
         },
     ];
-    private items = [];
     private selectedIndex = 0;
 
     private onTap(index) {

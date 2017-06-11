@@ -1,8 +1,8 @@
 @import url("~/platform.css");
 
 ActionBar {
-  background-color: black;
-  color: white;
+  background-color: greenyellow;
+  color: black;
 }
 
 Page {
@@ -20,4 +20,10 @@ TextField {
 }
 .medium-spacing {
   margin: 10;
+}
+
+.link {
+  font-size: 18;
+  color: blue;
+  margin: 20;
 }

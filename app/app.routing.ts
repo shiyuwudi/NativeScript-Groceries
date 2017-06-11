@@ -1,24 +1,85 @@
-import { TabComponent } from "./pages/tab/tab.component";
-import { ListComponent } from "./pages/list/list.component";
-import { TabbarComponent } from "./pages/tabbar/index.component";
+import { NgModule } from "@angular/core";
+import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { Routes } from "@angular/router";
 
-export const routes = [
+import {TabComponent} from "./pages/tab/tab.component";
+import {ListComponent} from "./pages/list/list.component";
+import {TabbarComponent} from "./pages/tabbar/index.component";
+import {OneComponent} from "./pages/one/one.component";
+import {TwoComponent} from "./pages/two/two.component";
+import {ThreeComponent} from "./pages/three/three.component";
+import {FourComponent} from "./pages/four/four.component";
+import {FiveComponent} from "./pages/five/five.component";
+import {HomeComponent} from "./home/home.component";
+import { OneOneComponent } from "./pages/one-one/one-one.component";
+import { OneTwoComponent } from "./pages/one-two/one-two.component";
+import {MyActionBarComponent} from "./pages/action-bar/action-bar.component";
+
+// 要跳转的页面
+const routes: Routes = [
   {
     path: "",
-    component: TabComponent,
+    redirectTo: "/home",
+    pathMatch: "full",
   },
   {
-    path: "list",
-    component: ListComponent,
-  },
-  {
-    path: "tabbar",
-    component: TabbarComponent,
-  },
+    path: "home",
+    component: HomeComponent,
+    children: [
+      {
+        path: "",
+        component: OneComponent,
+        children: [
+          {
+            path: "",
+            component: OneOneComponent,
+          },
+          {
+            path: "onetwo",
+            component: OneTwoComponent,
+          },
+        ],
+      },
+      {
+        path: "one",
+        component: OneComponent,
+      },
+      {
+        path: "two",
+        component: TwoComponent,
+      },
+      {
+        path: "three",
+        component: ThreeComponent,
+      },
+      {
+        path: "four",
+        component: FourComponent,
+      },
+      {
+        path: "five",
+        component: FiveComponent,
+      },
+    ]},
 ];
 
-export const navigatableComponents = [
+export const allComponents = [
   TabComponent,
   ListComponent,
   TabbarComponent,
+  OneComponent,
+  TwoComponent,
+  ThreeComponent,
+  FourComponent,
+  FiveComponent,
+  HomeComponent,
+  OneOneComponent,
+  OneTwoComponent,
+  MyActionBarComponent,
 ];
+
+@NgModule({
+  imports: [NativeScriptRouterModule.forRoot(routes)],
+  exports: [NativeScriptRouterModule],
+})
+export class AppRoutingModule { }

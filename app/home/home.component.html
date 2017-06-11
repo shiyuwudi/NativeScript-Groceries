@@ -1,0 +1,13 @@
+<!--<ActionBar title="Title">-->
+  <!--<NavigationButton-->
+    <!--text="返回"-->
+    <!--android.systemIcon="ic_menu_back"-->
+    <!--(tap)="onNavBtnTap()"-->
+  <!--&gt;-->
+  <!--</NavigationButton>-->
+<!--</ActionBar>-->
+
+<GridLayout rows="*,49">
+  <router-outlet></router-outlet>
+  <tabbar [selectedIndex]="selectedIndex" (onTabTap)="onTap($event)" [tabs]="tabs"></tabbar>
+</GridLayout>

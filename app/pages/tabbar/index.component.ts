@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   moduleId: module.id,
@@ -7,18 +8,19 @@ import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
   styleUrls: ["./index-common.css"],
 })
 export class TabbarComponent implements OnInit {
-  @Input() private selectedIndex;
-  @Input() private tabs: Array<{
+  public links = ["/home/", "/home/two", "/home/three", "/home/four", "/home/five"];
+  @Input() public tabs: Array<{
     title: string;
     image: string;
     selectedImage: string;
   }>;
-
+  @Input() public selectedIndex;
   @Output() private onTabTap = new EventEmitter();
 
-  private allTabs = [];
-
-  public ngOnInit() {}
+  constructor(private router: Router) {}
+  public ngOnInit() {
+    // 搞点大事情
+  }
 
   private onTap(index) {
     this.onTabTap.emit(index);

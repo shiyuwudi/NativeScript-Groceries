@@ -1,0 +1,6 @@
+<action-bar title="one-two"></action-bar>
+<StackLayout>
+    <Label text="back" textWrap="true" (tap)="onTap('back')" class="label"></Label>
+    <Label text="backToPreviousPage" textWrap="true" (tap)="onTap('backToPreviousPage')" class="label mtop"></Label>
+    <Label text="toNext" textWrap="true" [nsRouterLink]="['/home//']" class="label mtop"></Label>
+</StackLayout>

@@ -1,0 +1,17 @@
+StackLayout {
+    border-style: solid;
+    border-width: 1;
+    border-color: greenyellow;
+    padding: 10;
+    border-radius: 5;
+}
+
+.label {
+    font-size: 18;
+    color: blue;
+    text-align: center;
+}
+
+.mtop {
+    margin-top: 20;
+}
