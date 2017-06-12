@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
-import {Page} from "ui/page";
 import {ActionBar} from "tns-core-modules/ui/action-bar";
+import {Page} from "ui/page";
 
 @Component({
   moduleId: module.id,
@@ -14,7 +14,11 @@ export class OneTwoComponent implements OnInit {
         // ...
   }
   public ngOnInit() {
-    // 搞点大事情
+    // 登录
+    this.login();
+  }
+  public login() {
+    //
   }
   public onTap(type: string) {
     this.routerExtensions[type]();

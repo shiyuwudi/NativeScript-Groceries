@@ -6,6 +6,8 @@ import {NativeScriptHttpModule} from "nativescript-angular/http";
 import {AppComponent} from "./app.component";
 import {allComponents, AppRoutingModule} from "./app.routing";
 import {Logger} from "./service/logger.service";
+import {UserService} from "./shared/user/user.service";
+import {NetworkService} from "./service/main.service";
 
 @NgModule({
   // 引导组件
@@ -22,7 +24,11 @@ import {Logger} from "./service/logger.service";
     AppComponent,
     ...allComponents,
   ],
-  providers: [Logger],
+  providers: [
+    Logger,
+    UserService,
+    NetworkService,
+  ],
   // 容错
   schemas: [
     NO_ERRORS_SCHEMA,

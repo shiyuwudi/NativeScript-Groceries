@@ -2,12 +2,12 @@
  export class Logger {
    private messages: Array<{ msg: string, date: Date }> = [];
    public log(msg: string) {
-      console.log(`======= jing-lian-meng log: ${msg} =======`);
+      console.log(`\n======= jing-lian-meng log: ${msg} =======\n`);
       const date = new Date();
       this.messages.push({msg, date});
     }
    public error(msg: string) {
-     console.error(`======= jing-lian-meng log: ${msg} =======`);
+     console.error(`\n======= jing-lian-meng log: ${msg} =======\n`);
      const date = new Date();
      this.messages.push({msg, date});
    }
