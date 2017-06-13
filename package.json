@@ -24,6 +24,7 @@
     "@angular/router": "~4.0.0",
     "email-validator": "^1.0.7",
     "nativescript-angular": "~3.0.0",
+    "nativescript-barcodescanner": "^2.5.4",
     "nativescript-social-share": "^1.3.2",
     "nativescript-theme-core": "~1.0.4",
     "reflect-metadata": "~0.1.8",

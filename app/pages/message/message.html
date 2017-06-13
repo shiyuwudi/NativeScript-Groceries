@@ -1,0 +1,23 @@
+<ActionBar title="我的消息">
+</ActionBar>
+<ListView [items]="groceryList" separatorColor="transparent" class=".add-bar">
+    <ng-template let-item="item">
+        <GridLayout rows="40, auto" class="message-back">
+            <GridLayout row="0" columns="auto, *">
+                <Label col="0" [text]="item.name" class="message-title"></Label>
+                <Label col="1" [text]="item.time" class="message-title" horizontalAlignment="right"></Label>
+            </GridLayout>
+            <StackLayout row="1">
+                <Label [text]="item.content" class="message-content" textWrap="true"></Label>
+            </StackLayout>
+        </GridLayout>
+    </ng-template>
+</ListView>
+<ActivityIndicator
+        width="100" height="100"
+        [busy]="isLoading"
+        [visibility]="isLoading ? 'visible' : 'collapsed'"
+        horizontalAlignment="center"
+        verticalAlignment="center"
+>
+</ActivityIndicator>

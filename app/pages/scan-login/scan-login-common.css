@@ -1,0 +1,23 @@
+Image {
+    width: 187;
+    height: 76;
+    margin-top: 50;
+}
+.loginBtn {
+    background-color: #DB222E;
+    margin-top: 45;
+}
+.cancleBtn {
+    background-color: #73BE4B;
+    margin-top: 5;
+}
+Button {
+    margin-left: 30;
+    margin-right: 30;
+    font-size: 18;
+    color: white;
+}
+Label {
+    margin-top: 30;
+    font-size: 14;
+}

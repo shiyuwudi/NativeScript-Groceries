@@ -1,0 +1,18 @@
+.message-back {
+    background-color: white;
+    margin: 10;
+    margin-bottom: 0;
+}
+ListView {
+    background-color: #f0f0f0;
+}
+.message-title {
+    color: #666666;
+    margin: 10;
+}
+.message-content {
+    color: #666666;
+    margin: 10;
+    margin-top: 0;
+    font-size: 14;
+}
