@@ -1,0 +1,32 @@
+.title {
+    font-size: 14;
+    color: #000000;
+    vertical-align: center;
+    padding-left: 10;
+}
+
+.itemName {
+    font-size: 13;
+    vertical-align: center;
+    text-align: right;
+    padding-left: 5;
+}
+
+.itemLabel {
+    font-size: 13;
+    vertical-align: center;
+    text-align: center;
+    padding-left: 5;
+    padding-right: 5;
+}
+
+.itemLayoutN {
+    border-radius: 5;
+    background-color: #eeeeee;
+}
+
+.itemLayoutS {
+    border-radius: 5;
+    border-width: 1;
+    border-color: #db2222;
+}

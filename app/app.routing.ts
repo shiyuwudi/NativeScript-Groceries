@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { Routes } from "@angular/router";
+import {NgModule} from "@angular/core";
+import {NativeScriptRouterModule} from "nativescript-angular/router";
+import {Routes} from "@angular/router";
 
 import {TabComponent} from "./pages/tab/tab.component";
 import {ListComponent} from "./pages/list/list.component";
@@ -11,9 +11,14 @@ import {ThreeComponent} from "./pages/three/three.component";
 import {FourComponent} from "./pages/four/four.component";
 import {FiveComponent} from "./pages/five/five.component";
 import {HomeComponent} from "./home/home.component";
-import { OneOneComponent } from "./pages/one-one/one-one.component";
-import { OneTwoComponent } from "./pages/one-two/one-two.component";
+import {OneOneComponent} from "./pages/one-one/one-one.component";
+import {OneTwoComponent} from "./pages/one-two/one-two.component";
 import {MyActionBarComponent} from "./pages/action-bar/action-bar.component";
+import {GoodsSearchComponent} from "./pages/goods-search/goods-search.component";
+import {ViewPagerComponent} from "./pages/view-pager/view-pager.component";
+import {LinesLabelComponent} from "./pages/lines-label/lines-label.component";
+import {GoodsFilterComponent} from "./pages/goods-filter/goods-filter.component";
+import {BrandListComponent} from "./pages/brand-list/brand-list.componemt";
 
 // 要跳转的页面
 const routes: Routes = [
@@ -38,6 +43,14 @@ const routes: Routes = [
             path: "onetwo",
             component: OneTwoComponent,
           },
+          {
+            path: "goodsSearch",
+            component: GoodsSearchComponent,
+          },
+          {
+            path: "brandList",
+            component: BrandListComponent,
+          },
         ],
       },
       {
@@ -60,7 +73,8 @@ const routes: Routes = [
         path: "five",
         component: FiveComponent,
       },
-    ]},
+    ],
+  },
 ];
 
 export const allComponents = [
@@ -76,10 +90,16 @@ export const allComponents = [
   OneOneComponent,
   OneTwoComponent,
   MyActionBarComponent,
+  GoodsSearchComponent,
+  ViewPagerComponent,
+  LinesLabelComponent,
+  GoodsFilterComponent,
+  BrandListComponent,
 ];
 
 @NgModule({
   imports: [NativeScriptRouterModule.forRoot(routes)],
   exports: [NativeScriptRouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

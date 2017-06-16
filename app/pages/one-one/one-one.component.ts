@@ -2,10 +2,10 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {action} from "ui/dialogs";
 
-import { UserService } from "../../shared/user/user.service";
-import { User, ZhenTing, MuSiWen, ShiYu } from "../../shared/user/user";
-import { Logger } from "../../service/logger.service";
-import { NetworkService } from "../../service/main.service";
+import {UserService} from "../../shared/user/user.service";
+import {User, ZhenTing, MuSiWen, ShiYu} from "../../shared/user/user";
+import {Logger} from "../../service/logger.service";
+import {NetworkService} from "../../service/main.service";
 
 @Component({
   moduleId: module.id,
@@ -14,18 +14,28 @@ import { NetworkService } from "../../service/main.service";
 })
 
 export class OneOneComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private userService: UserService,
-    private logger: Logger,
-    private net: NetworkService,
-    ) {}
+  constructor(private router: Router,
+              private userService: UserService,
+              private logger: Logger,
+              private net: NetworkService,) {
+  }
+
   public ngOnInit() {
     // 搞点大事情
   }
+
+  public goSearchGoods() {
+    this.router.navigate(["/home//goodsSearch"], {
+      queryParams: {
+        keyword: "羽绒服",
+      },
+    });
+  }
+
   public testLogin() {
     this.userService.getLifeBuyList().subscribe();
   }
+
   public logout() {
     const currentUser = UserService.getCurrentUser();
     if (!currentUser) {
@@ -35,6 +45,7 @@ export class OneOneComponent implements OnInit {
       alert("成功退出");
     }
   }
+
   public showLogin() {
     const currentUser = UserService.getCurrentUser();
     if (!currentUser) {

@@ -3,4 +3,7 @@
     <Label text="我要登录" textWrap="true" class="link" (tap)="showLogin()"></Label>
     <Label text="我要退出登录!" textWrap="true" class="link" (tap)="logout()"></Label>
     <Label text="测试登录请求" textWrap="true" class="link" (tap)="testLogin()"></Label>
+    <Label text="/home//onetwo" textWrap="true" [nsRouterLink]="['/home//onetwo']" class="link"></Label>
+    <Label text="brandList" textWrap="true" [nsRouterLink]="['/home//brandList']" class="link"></Label>
+    <Button text="10.000" (tap)="goSearchGoods()" ></Button>
 </StackLayout>

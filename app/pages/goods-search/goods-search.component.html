@@ -1,0 +1,131 @@
+<RadSideDrawer [drawerLocation]="currentLocation" tkExampleTitle tkToggleNavButton>
+  <GridLayout tkDrawerContent class="sideStackLayout" rows="*,auto,40" columns="*">
+    <ScrollView orientation="vertical" width="100%" height="100%" row="0" col="0" class="sv">
+      <StackLayout>
+        <StackLayout orientation="vertical" width="100%" height="auto">
+          <GridLayout width="100%" rows="38" columns="auto">
+            <label row="0" col="0" text="方式" class="title"></label>
+          </GridLayout>
+          <WrapLayout orientation="horizontal" itemWidth="90" itemHeight="40" width="270"
+                      height="40">
+            <StackLayout width="80" height="30" margin="5"
+                         orientation="horizontal"
+                         [class]="selfFilter==='1'?'itemLayoutS':'itemLayoutN'"
+                         (tap)="headerTap(1)">
+              <Image src="res://filter_right" width="12" height="12" marginLeft="5"
+                     [visibility]="selfFilter==='1'?'visible':'collapsed'"></Image>
+              <Label class="itemLabel" text="自营" width="100%"
+                     [color]="selfFilter==='1'?'#db2222':'#666666'"></Label>
+            </StackLayout>
+            <StackLayout width="80" height="30" margin="5"
+                         orientation="horizontal"
+                         [class]="payafterFilter==='1'?'itemLayoutS':'itemLayoutN'"
+                         (tap)="headerTap(2)">
+              <Image src="res://filter_right" width="12" height="12" marginLeft="5"
+                     [visibility]="payafterFilter==='1'?'visible':'collapsed'"></Image>
+              <Label class="itemLabel" text="货到付款" width="100%"
+                     [color]="payafterFilter==='1'?'#db2222':'#666666'"></Label>
+            </StackLayout>
+            <StackLayout width="80" height="30" margin="5"
+                         orientation="horizontal"
+                         [class]="inventoryFilter==='1'?'itemLayoutS':'itemLayoutN'"
+                         (tap)="headerTap(3)">
+              <Image src="res://filter_right" width="12" height="12" marginLeft="5"
+                     [visibility]="inventoryFilter==='1'?'visible':'collapsed'"></Image>
+              <Label class="itemLabel" text="仅看有货" width="100%"
+                     [color]="inventoryFilter==='1'?'#db2222':'#666666'"></Label>
+            </StackLayout>
+          </WrapLayout>
+        </StackLayout>
+        <StackLayout *ngFor="let filter of filterList; let i=index">
+          <goods-filter [labs]="filter.value" [title]="filter.name" [index]="filter.index"
+                        [id]="filter.id" (onItemTap)="onFilterItem($event)"
+          ></goods-filter>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+    <Label class="line" row="1" col="0"></Label>
+    <GridLayout rows="40" columns="*,*" row="2" col="0">
+      <StackLayout row="0" col="0" orientation="horizontal"
+                   (tap)="reset()">
+        <label text="重置" color="#666666" class="centerButton" width="100%"></label>
+      </StackLayout>
+      <StackLayout row="0" col="1" backgroundColor="#db2222" orientation="horizontal"
+                   (tap)="submit()">
+        <label text="提交" color="#ffffff" class="centerButton" width="100%"></label>
+      </StackLayout>
+    </GridLayout>
+  </GridLayout>
+  <StackLayout tkMainContent>
+    <GridLayout columns="48, *, 48" rows="48" width="100%">
+      <Image src="res://back" row="0" col="0" width="38" height="38" class="center"
+             (tap)="back($event)"></Image>
+      <AbsoluteLayout row="0" col="1">
+        <AbsoluteLayout width="100%" class="keyBg1" height="38" marginTop="5">
+          <StackLayout orientation="horizontal" marginLeft="5" height="28" marginTop="5"
+                       class="keyBg2" width="auto">
+            <label [text]="keyword===''?word:keyword" class="keyWord"></label>
+            <label class="keyLine"></label>
+            <Image width="15" height="15" src="res://close_white" (tap)="back($event)"
+                   class="close"></Image>
+          </StackLayout>
+        </AbsoluteLayout>
+      </AbsoluteLayout>
+      <StackLayout col="2" row="0" orientation="horizontal"
+                   (tap)="onSelect($event)">
+        <Label text="筛选" class="centerText" (tap)="onSelect($event)" width="100%"></Label>
+      </StackLayout>
+    </GridLayout>
+    <label class="line"></label>
+    <GridLayout rows="40" columns="*,*,*,*" width="100%">
+      <GridLayout rows="40" columns="*" row="0" col="0" class="centerAl"
+                  width="100%" height="100%" (tap)="tapPopularity($event)">
+        <Label #popularity text="人气" class="centerAl" color="#666666"></Label>
+      </GridLayout>
+      <GridLayout rows="40" columns="*" row="0" col="1" class="centerAl"
+                  width="100%" height="100%" (tap)="tapSales($event)">
+        <Label #sales text="销量" class="centerAl" color="#666666"></Label>
+      </GridLayout>
+      <GridLayout rows="40" columns="*" row="0" col="2" class="centerAl"
+                  width="100%" height="100%" (tap)="tapPrice($event)">
+        <StackLayout orientation="horizontal" class="centerAl">
+          <Label #price text="价格" color="#666666"></Label>
+          <Image #priceImage
+                 [src]="orderBy==='goods_current_price'?(orderByType==='desc'? 'res://pricedown':'res://priceup' ):'res://priceno_cloud'"
+                 width="10" height="10"></Image>
+        </StackLayout>
+      </GridLayout>
+      <GridLayout rows="40" columns="*" row="0" col="3" class="centerAl"
+                  width="100%" height="100%" (tap)="tapNew($event)">
+        <Label #new text="新品" class="centerAl" color="#666666"></Label>
+      </GridLayout>
+    </GridLayout>
+    <label class="line"></label>
+    <PullToRefresh (refresh)="refreshList($event)">
+      <ListView #listView [items]="goodsList" (itemTap)="onItemTap($event)" class="list-group"
+                (loadMoreItems)="loadmore($event)">
+        <ng-template let-item="item">
+          <StackLayout orientation="horizontal" width="100%" height="124">
+            <Image width="116" height="116" [src]="item.goods_main_photo" marginLeft="5"
+                   marginRight="5" marginTop="4" marginLeft="5" marginBottom="4"></Image>
+            <GridLayout rows="auto,*,auto" columns="*" paddingTop="4" paddingRight="5"
+                        paddingBottom="4" height="116">
+              <lines-label
+                [text]="item.goods_name"
+                lineNumber="2" row="0" col="0"></lines-label>
+              <StackLayout orientation="horizontal" row="1" col="0">
+                <Label [text]="'￥'+item.goods_current_price" color="#ff0000" width="100%"
+                       class="money"></Label>
+              </StackLayout>
+              <StackLayout orientation="horizontal" row="2" col="0">
+                <Label [text]="item.status" class="status"
+                       [visibility]="item.status==='' ? 'collapsed':'visible'"></Label>
+                <Label [text]="item.evaluate" class="eva" width="100%"></Label>
+              </StackLayout>
+            </GridLayout>
+          </StackLayout>
+        </ng-template>
+      </ListView>
+    </PullToRefresh>
+  </StackLayout>
+</RadSideDrawer>

@@ -1,0 +1,20 @@
+<StackLayout orientation="vertical" width="100%" height="auto">
+  <GridLayout width="100%" rows="38" columns="auto,*,auto">
+    <label row="0" col="0" [text]="title" class="title"></label>
+    <label row="0" col="1" [text]="itemName" class="itemName"
+           [color]="index!=-1?'#db2222':'#666666'" (tap)="open()"></label>
+    <image row="0" col="2" [src]="isShow?'res://filter_arrow_up':'res://filter_arrow_down'"
+           width="12" height="12" marginRight="10" marginLeft="5" (tap)="open()"></image>
+  </GridLayout>
+  <WrapLayout #wrapLayout orientation="horizontal" itemWidth="90" itemHeight="40" width="270"
+              [height]="itemHeight">
+    <StackLayout *ngFor="let lab of labs; let i=index" width="80" height="30" margin="5"
+                 orientation="horizontal" [class]="index===i?'itemLayoutS':'itemLayoutN'"
+                 (tap)="itemTap($event,lab,i)">
+      <Image src="res://filter_right" width="12" height="12" marginLeft="5"
+             [visibility]="index===i?'visible':'collapsed'"></Image>
+      <Label class="itemLabel" [text]="lab" width="100%"
+             [color]="index===i?'#db2222':'#666666'"></Label>
+    </StackLayout>
+  </WrapLayout>
+</StackLayout>

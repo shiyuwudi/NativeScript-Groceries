@@ -1,0 +1,57 @@
+<StackLayout orientation="vertical" width="100%" height="100%">
+  <StackLayout orientation="horizontal" height="48">
+    <Label text="品牌" verticalAlignment="center" fontSize="16" color="#000000"
+           marginLeft="16"></Label>
+  </StackLayout>
+  <AbsoluteLayout width="100%" height="100%">
+    <ListView #listView [items]="brandItemList" (itemTap)="onItemTap($event)" width="100%"
+              height="100%">
+      <ng-template let-item="item">
+        <StackLayout width="100%">
+          <StackLayout orientation="horizontal" backgroundColor="#eeeeee" padding="10"
+                       [visibility]="item.index===0?'visible':'collapsed'">
+            <Label [text]="item.key" verticalAlignment="center"></Label>
+          </StackLayout>
+          <StackLayout orientation="horizontal" height="60">
+            <Image width="80" height="38" [src]="item.photo" marginLeft="16dp" marginRight="10"
+                   verticalAlignment="center" loadMode="async"></Image>
+            <Label [text]="item.name" fontSize="16" color="#666666"
+                   verticalAlignment="center" width="100%"></Label>
+          </StackLayout>
+        </StackLayout>
+      </ng-template>
+    </ListView>
+    <StackLayout orientation="vertical" width="100" height="100%" [left]="barLeft">
+      <Label height="48"></Label>
+      <GridLayout #keyBar rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*," columns="auto"
+                  height="100%" paddingLeft="10" paddingRight="5" (onTouch)="onTouch($event)">
+        <Label text="A" [fontSize]="keyFontSize" textAlignment="center" row="0" col="0"></Label>
+        <Label text="B" [fontSize]="keyFontSize" textAlignment="center" row="1" col="0"></Label>
+        <Label text="C" [fontSize]="keyFontSize" textAlignment="center" row="2" col="0"></Label>
+        <Label text="D" [fontSize]="keyFontSize" textAlignment="center" row="3" col="0"></Label>
+        <Label text="E" [fontSize]="keyFontSize" textAlignment="center" row="4" col="0"></Label>
+        <Label text="F" [fontSize]="keyFontSize" textAlignment="center" row="5" col="0"></Label>
+        <Label text="G" [fontSize]="keyFontSize" textAlignment="center" row="6" col="0"></Label>
+        <Label text="H" [fontSize]="keyFontSize" textAlignment="center" row="7" col="0"></Label>
+        <Label text="I" [fontSize]="keyFontSize" textAlignment="center" row="8" col="0"></Label>
+        <Label text="J" [fontSize]="keyFontSize" textAlignment="center" row="9" col="0"></Label>
+        <Label text="K" [fontSize]="keyFontSize" textAlignment="center" row="10" col="0"></Label>
+        <Label text="L" [fontSize]="keyFontSize" textAlignment="center" row="11" col="0"></Label>
+        <Label text="M" [fontSize]="keyFontSize" textAlignment="center" row="12" col="0"></Label>
+        <Label text="N" [fontSize]="keyFontSize" textAlignment="center" row="13" col="0"></Label>
+        <Label text="O" [fontSize]="keyFontSize" textAlignment="center" row="14" col="0"></Label>
+        <Label text="P" [fontSize]="keyFontSize" textAlignment="center" row="15" col="0"></Label>
+        <Label text="Q" [fontSize]="keyFontSize" textAlignment="center" row="16" col="0"></Label>
+        <Label text="R" [fontSize]="keyFontSize" textAlignment="center" row="17" col="0"></Label>
+        <Label text="S" [fontSize]="keyFontSize" textAlignment="center" row="18" col="0"></Label>
+        <Label text="T" [fontSize]="keyFontSize" textAlignment="center" row="19" col="0"></Label>
+        <Label text="U" [fontSize]="keyFontSize" textAlignment="center" row="20" col="0"></Label>
+        <Label text="V" [fontSize]="keyFontSize" textAlignment="center" row="21" col="0"></Label>
+        <Label text="W" [fontSize]="keyFontSize" textAlignment="center" row="22" col="0"></Label>
+        <Label text="X" [fontSize]="keyFontSize" textAlignment="center" row="23" col="0"></Label>
+        <Label text="Y" [fontSize]="keyFontSize" textAlignment="center" row="24" col="0"></Label>
+        <Label text="Z" [fontSize]="keyFontSize" textAlignment="center" row="25" col="0"></Label>
+      </GridLayout>
+    </StackLayout>
+  </AbsoluteLayout>
+</StackLayout>

@@ -1,0 +1,122 @@
+.centerText {
+    text-align: center;
+    vertical-align: center;
+}
+
+.keyWord {
+    color: #ffffff;
+    text-align: center;
+    margin-left: 10;
+    margin-right: 10;
+    vertical-align: center;
+}
+
+.keyLine {
+    background-color: #ffffff;
+    width: 1px;
+    height: 100%;
+}
+
+.keyBg1 {
+    background-color: #13000000;
+    border-radius: 5;
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+.keyBg2 {
+    background-color: #bb000000;
+    border-radius: 5;
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #999999;
+}
+
+.centerAl {
+    horizontal-align: center;
+    vertical-align: center;
+}
+
+.sideStackLayout {
+    background-color: #ffffff;
+}
+
+.eva {
+    color: #999999;
+    font-size: 12;
+}
+
+.status {
+    color: #db2222;
+    border-radius: 3;
+    border-width: 1;
+    border-color: #db2222;
+    font-size: 10;
+    padding-left: 2;
+    padding-right: 2;
+    margin-right: 3;
+}
+
+.money {
+    vertical-align: bottom;
+}
+
+.center {
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+.centerButton {
+    text-align: center;
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+.close {
+    vertical-align: center;
+    horizontal-align: center;
+    margin-right: 8;
+    margin-left: 8;
+}
+
+.sv {
+    margin-left: 5;
+    margin-right: 5;
+}
+.title {
+    font-size: 14;
+    color: #000000;
+    vertical-align: center;
+    padding-left: 10;
+}
+
+.itemName {
+    font-size: 13;
+    vertical-align: center;
+    text-align: right;
+    padding-left: 5;
+}
+
+.itemLabel {
+    font-size: 13;
+    vertical-align: center;
+    text-align: center;
+    padding-left: 5;
+    padding-right: 5;
+}
+
+.itemLayoutN {
+    border-radius: 5;
+    background-color: #eeeeee;
+}
+
+.itemLayoutS {
+    border-radius: 5;
+    border-width: 1;
+    border-color: #db2222;
+}
