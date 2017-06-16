@@ -120,3 +120,25 @@
     border-width: 1;
     border-color: #db2222;
 }
+
+.list-group {
+    height: 100%;
+}
+
+.drawer-left {
+    background-color: red;
+}
+
+.white {
+    background-color: white;
+}
+
+.trans {
+    background-color: #33000000;
+}
+
+.vline {
+    background-color: #999999;
+    width: 1px;
+    height: 100%;
+}

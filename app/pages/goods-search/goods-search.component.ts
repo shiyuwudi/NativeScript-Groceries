@@ -19,6 +19,10 @@ import {GoodsFilterList} from "../../shared/goods/goods-filter-list";
 import {GoodsFilter} from "../../shared/goods/goods-filter";
 import {ActivatedRoute} from "@angular/router";
 import {ListView} from "tns-core-modules/ui/list-view";
+import * as utils from "utils/utils";
+import { Color } from "color";
+import { screen } from "platform";
+
 registerElement("PullToRefresh", () => require("nativescript-pulltorefresh").PullToRefresh);
 
 @Component({
@@ -110,8 +114,12 @@ export class GoodsSearchComponent implements OnInit, AfterViewInit {
       });
     if (isRefresh) {
       const listView = this.listView.nativeElement as ListView;
-      listView.scrollToIndex(0);
+      // listView.scrollToIndex(0);
     }
+  }
+
+  public get imageSrc() {
+    return this.orderBy ==="goods_current_price"?(this.orderByType==='desc'? "res://pricedown":"res://priceup" ):"res://priceno_cloud";
   }
 
   public onItemTap(event) {
@@ -137,17 +145,22 @@ export class GoodsSearchComponent implements OnInit, AfterViewInit {
       });
   }
 
+  public onLeftTap() {
+    this.drawer.closeDrawer();
+  }
+
   public onLoaded() {
     if (this.drawer.android) {
       this.drawer.android.setDrawerCloseThreshold(5);
     }
     this.currentLocation = SideDrawerLocation.Right;
     this.changeDetectionRef.detectChanges();
+    this.drawer.drawerContent.backgroundColor = new Color("#00000000");
   }
 
   public ngAfterViewInit(): void {
     this.drawer = this.drawerComponent.sideDrawer;
-    this.drawer.drawerContentSize = 280;
+    this.drawer.drawerContentSize = screen.mainScreen.widthDIPs;
     this.changeDetectionRef.detectChanges();
   }
 

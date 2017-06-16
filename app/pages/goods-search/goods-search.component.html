@@ -1,6 +1,8 @@
 <RadSideDrawer [drawerLocation]="currentLocation" tkExampleTitle tkToggleNavButton>
-  <GridLayout tkDrawerContent class="sideStackLayout" rows="*,auto,40" columns="*">
-    <ScrollView orientation="vertical" width="100%" height="100%" row="0" col="0" class="sv">
+  <GridLayout tkDrawerContent class="sideStackLayout" rows="*,auto,40" columns="*, auto, 280">
+    <StackLayout (tap)="onLeftTap()" row="0" rowSpan="3"></StackLayout>
+    <Label class="vline" row="0" col="1" rowSpan="3"></Label>
+    <ScrollView orientation="vertical" width="100%" height="100%" row="0" col="2" class="white">
       <StackLayout>
         <StackLayout orientation="vertical" width="100%" height="auto">
           <GridLayout width="100%" rows="38" columns="auto">
@@ -44,8 +46,8 @@
         </StackLayout>
       </StackLayout>
     </ScrollView>
-    <Label class="line" row="1" col="0"></Label>
-    <GridLayout rows="40" columns="*,*" row="2" col="0">
+    <Label class="line" row="1" col="2"></Label>
+    <GridLayout rows="40" columns="*,*" row="2" col="2" class="white">
       <StackLayout row="0" col="0" orientation="horizontal"
                    (tap)="reset()">
         <label text="重置" color="#666666" class="centerButton" width="100%"></label>
@@ -91,7 +93,7 @@
         <StackLayout orientation="horizontal" class="centerAl">
           <Label #price text="价格" color="#666666"></Label>
           <Image #priceImage
-                 [src]="orderBy==='goods_current_price'?(orderByType==='desc'? 'res://pricedown':'res://priceup' ):'res://priceno_cloud'"
+                 [src]="imageSrc"
                  width="10" height="10"></Image>
         </StackLayout>
       </GridLayout>
@@ -110,9 +112,14 @@
                    marginRight="5" marginTop="4" marginLeft="5" marginBottom="4"></Image>
             <GridLayout rows="auto,*,auto" columns="*" paddingTop="4" paddingRight="5"
                         paddingBottom="4" height="116">
-              <lines-label
-                [text]="item.goods_name"
-                lineNumber="2" row="0" col="0"></lines-label>
+              <Label
+              [text]="item.goods_name"
+              maxLines="2"
+              row="0"
+              col="0"
+              textWrap="true"
+              >
+              </Label>
               <StackLayout orientation="horizontal" row="1" col="0">
                 <Label [text]="'￥'+item.goods_current_price" color="#ff0000" width="100%"
                        class="money"></Label>

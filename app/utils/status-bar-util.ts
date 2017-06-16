@@ -13,14 +13,14 @@ export function setStatusBarColors() {
   // See https://github.com/burkeholland/nativescript-statusbar/issues/2
   // for details on the technique used.
   if (application.ios) {
-    let AppDelegate = UIResponder.extend({
-      applicationDidFinishLaunchingWithOptions: function() {
+    const AppDelegate = UIResponder.extend({
+      applicationDidFinishLaunchingWithOptions() {
         utils.ios.getter(UIApplication, UIApplication.sharedApplication).statusBarStyle = UIStatusBarStyle.LightContent;
         return true;
-      }
+      },
     }, {
         name: "AppDelegate",
-        protocols: [UIApplicationDelegate]
+        protocols: [UIApplicationDelegate],
       });
     application.ios.delegate = AppDelegate;
   }
@@ -29,13 +29,13 @@ export function setStatusBarColors() {
   // See http://bradmartin.net/2016/03/10/fullscreen-and-navigation-bar-color-in-a-nativescript-android-app/
   // for details on the technique used.
   if (application.android) {
-    application.android.on("activityStarted", function() {
+    application.android.on("activityStarted", () => {
       if (application.android && platform.device.sdkVersion >= "21") {
-        let View = android.view.View;
-        let window = application.android.startActivity.getWindow();
+        const View = android.view.View;
+        const window = application.android.startActivity.getWindow();
         window.setStatusBarColor(0x000000);
 
-        let decorView = window.getDecorView();
+        const decorView = window.getDecorView();
         decorView.setSystemUiVisibility(
           View.SYSTEM_UI_FLAG_LAYOUT_STABLE
           // | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION

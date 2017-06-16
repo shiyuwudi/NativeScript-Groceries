@@ -1,32 +1,31 @@
 /**
  * Created by admin on 2017/6/12.
  */
-import {Component, ElementRef, Input, ViewChild} from "@angular/core";
+import {Component, ElementRef, Input, ViewChild, Directive, HostListener} from "@angular/core";
 import * as platform from "platform";
 import {Label} from "tns-core-modules/ui/label";
 
 declare var android;
 
-@Component({
-  selector: "lines-label",
-  moduleId: module.id,
-  templateUrl: "./lines-label.component.html",
+@Directive({
+  selector: "[maxLines]",
 })
-export class LinesLabelComponent {
-  @ViewChild("lab") public lab: ElementRef;
+export class LinesLabelDirective {
 
-  @Input() private text: string;
-  @Input() private lineNumber: any = 1;
+  @Input() private maxLines: any = 1;
 
-  public loaded() {
-    const label = this.lab.nativeElement as Label;
+  constructor(private el: ElementRef) {
+    //
+  }
+
+  @HostListener("loaded") public onChange() {
+    const label = this.el.nativeElement as Label;
     if (platform.isAndroid) {
-      label.android.setMaxLines(parseInt(this.lineNumber, 0));
-      label.android.setLines(parseInt(this.lineNumber, 0));
+      label.android.setMaxLines(parseInt(this.maxLines, 0));
+      label.android.setLines(parseInt(this.maxLines, 0));
       label.android.setEllipsize(android.text.TextUtils.TruncateAt.END);
     } else if (platform.isIOS) {
-      label.ios.numberOfLines = parseInt(this.lineNumber, 0);
+      label.ios.numberOfLines = parseInt(this.maxLines, 0);
     }
   }
 }
-

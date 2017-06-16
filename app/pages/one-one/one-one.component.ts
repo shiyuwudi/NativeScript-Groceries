@@ -17,7 +17,7 @@ export class OneOneComponent implements OnInit {
   constructor(private router: Router,
               private userService: UserService,
               private logger: Logger,
-              private net: NetworkService,) {
+              private net: NetworkService) {
   }
 
   public ngOnInit() {

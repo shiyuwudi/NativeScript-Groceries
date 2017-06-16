@@ -16,7 +16,7 @@ import {OneTwoComponent} from "./pages/one-two/one-two.component";
 import {MyActionBarComponent} from "./pages/action-bar/action-bar.component";
 import {GoodsSearchComponent} from "./pages/goods-search/goods-search.component";
 import {ViewPagerComponent} from "./pages/view-pager/view-pager.component";
-import {LinesLabelComponent} from "./pages/lines-label/lines-label.component";
+import {LinesLabelDirective} from "./pages/lines-label/lines-label.component";
 import {GoodsFilterComponent} from "./pages/goods-filter/goods-filter.component";
 import {BrandListComponent} from "./pages/brand-list/brand-list.componemt";
 
@@ -92,7 +92,7 @@ export const allComponents = [
   MyActionBarComponent,
   GoodsSearchComponent,
   ViewPagerComponent,
-  LinesLabelComponent,
+  LinesLabelDirective,
   GoodsFilterComponent,
   BrandListComponent,
 ];
