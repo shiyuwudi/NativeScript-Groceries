@@ -1,6 +1,92 @@
-<action-bar title="one-two"></action-bar>
-<StackLayout>
-    <Label text="back" textWrap="true" (tap)="onTap('back')" class="label"></Label>
-    <Label text="backToPreviousPage" textWrap="true" (tap)="onTap('backToPreviousPage')" class="label mtop"></Label>
-    <Label text="toNext" textWrap="true" [nsRouterLink]="['/home//']" class="label mtop"></Label>
-</StackLayout>
+<GridLayout
+  rows="20, 44, 5" columns="auto, *, auto"
+  verticalAlignment="top"  class="navi-container"
+  [backgroundColor]="bgSearch"
+>
+    <GridLayout row="1" col="0" rows="*, 15" width="44">
+        <Image row="0" src="res://banana" stretch="aspectFit" class="navi-img"></Image>
+        <Label row="1" text="扫一扫" textWrap="true" class="navi-text"></Label>
+    </GridLayout>
+    <GridLayout row="1" col="1" class="navi-search">
+    </GridLayout>
+    <GridLayout row="1" col="2" rows="*, 15" width="44">
+        <Image row="0" src="res://apple" stretch="aspectFit" class="navi-img"></Image>
+        <Label row="1" text="消息" textWrap="true" class="navi-text"></Label>
+    </GridLayout>
+
+</GridLayout>
+
+
+
+
+
+<ScrollView (scroll)="onScroll($event)">
+    <GridLayout rows="auto, auto, auto, *">
+        <Carousel row="0" height="200" pageChanged="myChangeEvent" autoPagingInterval="2">
+            <CarouselItem  verticalAlignment="center">
+                <Image [src]="url1" stretch="fill"></Image>
+            </CarouselItem>
+            <CarouselItem verticalAlignment="center">
+                <Image [src]="url2" stretch="fill"></Image>
+            </CarouselItem>
+            <CarouselItem verticalAlignment="center">
+                <Image [src]="url3" stretch="fill"></Image>
+            </CarouselItem>
+            <CarouselItem verticalAlignment="center">
+                <Image [src]="url4" stretch="fill"></Image>
+            </CarouselItem>
+        </Carousel>
+
+        <GridLayout row="1" rows="100, 100, 100" columns="*, *, *">
+            <Label *ngFor="let entry of mainEntries" [text]="entry.title"
+                   textWrap="true" class="main-entry-text h4 m-text"
+                   [row]="entry.row" [col]="entry.col"
+                   [backgroundColor]="entry.color"
+            ></Label>
+
+        </GridLayout>
+        <GridLayout row="2" rows="150, auto ,auto" columns="*, *, *">
+
+            <GridLayout
+              row="0" col="0"
+              rows="*, 15" (tap)="dialNumber()"
+              class="h4 mg-10" [width]="diameter" [height]="diameter"
+              borderColor="red" [borderRadius]="diameter/2" borderStyle="solid"
+              borderWidth="1" backgroundColor="aqua" padding="10"
+            >
+                <Image row="0" src="res://pear" stretch="aspectFit" class="bottom-entry-image"></Image>
+                <Label row="1" text="客服电话" textWrap="true" class="m-text"></Label>
+            </GridLayout>
+            <GridLayout
+              row="0" col="1"
+              rows="*, 15"
+              class="h4 mg-10" [width]="diameter" [height]="diameter"
+              borderColor="red" [borderRadius]="diameter/2" borderStyle="solid"
+              borderWidth="1" backgroundColor="aqua" padding="10"
+            >
+                <Image row="0" src="res://apple" stretch="aspectFit" class="bottom-entry-image"></Image>
+                <Label row="1" text="意见反馈" textWrap="true" class="m-text"></Label>
+            </GridLayout>
+            <GridLayout
+              row="0" col="2"
+              rows="*, 15"
+              class="h4 mg-10" [width]="diameter" [height]="diameter"
+              borderColor="red" [borderRadius]="diameter/2" borderStyle="solid"
+              borderWidth="1" backgroundColor="aqua" padding="10"
+            >
+                <Image row="0" src="res://banana" stretch="aspectFit" class="bottom-entry-image"></Image>
+                <Label row="1" text="关于闲途" textWrap="true" class="m-text"></Label>
+            </GridLayout>
+
+            <Label row="1" col="0" colSpan="3" text="全国数千家商户，一站式服务体验" textWrap="true" class="m-text mg-10"></Label>
+            <Label row="2" col="0" colSpan="3" text="文化生态游领航者" textWrap="true" class="m-text"></Label>
+        </GridLayout>
+    </GridLayout>
+</ScrollView>
+
+<!--<action-bar title="one-two"></action-bar>-->
+<!--<StackLayout>-->
+<!--<Label text="back" textWrap="true" (tap)="onTap('back')" class="label"></Label>-->
+<!--<Label text="backToPreviousPage" textWrap="true" (tap)="onTap('backToPreviousPage')" class="label mtop"></Label>-->
+<!--<Label text="toNext" textWrap="true" [nsRouterLink]="['/home//']" class="label mtop"></Label>-->
+<!--</StackLayout>-->

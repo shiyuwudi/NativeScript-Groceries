@@ -1,4 +1,4 @@
-<GridLayout row="1" columns="*,*,*,*,*">
+<GridLayout row="1" columns="*,*,*,*,*" class="tab-container">
       <GridLayout
         *ngFor="let tab of tabs; let i=index" [col]="i"
         (tap)="onTap(i)"

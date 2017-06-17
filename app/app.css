@@ -27,3 +27,11 @@ TextField {
   color: blue;
   margin: 20;
 }
+
+.h3 {
+    font-size: 15;
+}
+
+.h4 {
+    font-size: 12;
+}

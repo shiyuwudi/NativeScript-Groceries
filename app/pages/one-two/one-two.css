@@ -15,3 +15,42 @@ StackLayout {
 .mtop {
     margin-top: 20;
 }
+.navi-img {
+    width: 20;
+    height: 20;
+}
+
+.navi-text {
+    font-size: 10;
+    color: black;
+    text-align: center;
+}
+
+.navi-container {
+}
+
+.navi-search {
+    background-color: #33ffffff;
+    margin: 5;
+    border-radius: 5;
+}
+
+.main-entry-text {
+    border-style: solid;
+    border-width: 1;
+    border-color: greenyellow;
+    color: white;
+}
+
+.m-text {
+    text-align: center;
+}
+
+.mg-10 {
+    margin: 10;
+}
+
+.bottom-entry-image {
+    width: 40;
+    height: 40;
+}

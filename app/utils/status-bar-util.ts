@@ -13,15 +13,15 @@ export function setStatusBarColors() {
   // See https://github.com/burkeholland/nativescript-statusbar/issues/2
   // for details on the technique used.
   if (application.ios) {
-    const AppDelegate = UIResponder.extend({
-      applicationDidFinishLaunchingWithOptions() {
+    let AppDelegate = UIResponder.extend({
+      applicationDidFinishLaunchingWithOptions: function() {
         utils.ios.getter(UIApplication, UIApplication.sharedApplication).statusBarStyle = UIStatusBarStyle.LightContent;
         return true;
-      },
+      }
     }, {
-        name: "AppDelegate",
-        protocols: [UIApplicationDelegate],
-      });
+      name: "AppDelegate",
+      protocols: [UIApplicationDelegate]
+    });
     application.ios.delegate = AppDelegate;
   }
 

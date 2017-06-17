@@ -1,9 +1,27 @@
-<StackLayout>
-    <Label text="/home//onetwo" textWrap="true" [nsRouterLink]="['/home//onetwo']" class="link"></Label>
-    <Label text="我要登录" textWrap="true" class="link" (tap)="showLogin()"></Label>
-    <Label text="我要退出登录!" textWrap="true" class="link" (tap)="logout()"></Label>
-    <Label text="测试登录请求" textWrap="true" class="link" (tap)="testLogin()"></Label>
-    <Label text="/home//onetwo" textWrap="true" [nsRouterLink]="['/home//onetwo']" class="link"></Label>
-    <Label text="brandList" textWrap="true" [nsRouterLink]="['/home//brandList']" class="link"></Label>
-    <Button text="10.000" (tap)="goSearchGoods()" ></Button>
-</StackLayout>
+<GridLayout rows="200" backgroundColor="red" marginTop="-20">
+
+    <Carousel row="0" pageChanged="myChangeEvent" autoPagingInterval="2">
+        <CarouselItem  verticalAlignment="center">
+            <Image [src]="url1" stretch="fill"></Image>
+        </CarouselItem>
+        <CarouselItem verticalAlignment="center">
+            <Image [src]="url2" stretch="fill"></Image>
+        </CarouselItem>
+        <CarouselItem verticalAlignment="center">
+            <Image [src]="url3" stretch="fill"></Image>
+        </CarouselItem>
+        <CarouselItem verticalAlignment="center">
+            <Image [src]="url4" stretch="fill"></Image>
+        </CarouselItem>
+    </Carousel>
+    <GridLayout row="0" rows="20, 44" columns="auto, *, auto" verticalAlignment="top" height="64" backgroundColor="aqua">
+        <!--<Label row="0" col="0" colSpan="4" text="" textWrap="true" marginTop="0"></Label>-->
+
+        <GridLayout row="1" col="0" rows="*, 5" width="44">
+            <Image row="0" src="res://banana" stretch="aspectFit" class="navi-img"></Image>
+            <Label row="1" text="扫一扫" textWrap="true" class="navi-text"></Label>
+        </GridLayout>
+        <Label row="1" col="1" text="扫一扫" textWrap="true" backgroundColor="#faebd7"></Label>
+        <Label row="1" col="2" text="扫一扫" textWrap="true" width="44" ></Label>
+    </GridLayout>
+</GridLayout>

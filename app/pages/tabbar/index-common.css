@@ -11,3 +11,9 @@
 .selected {
     color: red;
 }
+
+.tab-container {
+    border-style: solid;
+    border-width: 1;
+    border-color: greenyellow;
+}

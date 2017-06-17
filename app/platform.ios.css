@@ -2,3 +2,7 @@ TextField {
     border-color: black;
     border-width: 1;
 }
+
+Page {
+    margin-top: -20;
+}
