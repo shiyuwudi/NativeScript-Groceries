@@ -1,0 +1,24 @@
+<RadListView [items]="goodsList" (itemLoading)="itemLoading($event)">
+  <ng-template tkListItemTemplate let-item="item">
+    <GridLayout rows="174,auto,*" columns="*" backgroundColor="#ffffff">
+      <Image marginTop="4" [src]="item.goods_pic" class="imgItem" row="0" col="0"></Image>
+      <Label
+        [text]="item.goods_name"
+        row="1"
+        col="0"
+        textWrap="true"
+      ></Label>
+      <Label [text]="'￥'+item.goods_price" fontSize="14" color="#db2222" col="0" row="2" ></Label>
+    </GridLayout>
+  </ng-template>
+  <!-- >> angular-listview-item-layouts-grid -->
+  <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" itemHeight="200"
+                      spanCount="2"></ListViewGridLayout>
+  <!-- << angular-listview-item-layouts-grid -->
+  <ng-template tkListViewHeader>
+    <StackLayout>
+      <Image src="res://coupon_success" class="img" width="78" height="50"></Image>
+      <Label text="恭喜您，领取成功！" class="text"></Label>
+    </StackLayout>
+  </ng-template>
+</RadListView>

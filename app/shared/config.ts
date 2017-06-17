@@ -4,4 +4,6 @@ export class Config {
   public static searchGoods = "https://app.iskyshop.com/app/goods_list.htm";
   public static filterGoods = "https://app.iskyshop.com/app/getfilter.htm";
   public static brandList = Config.apiUrl + "/app/brand_list.htm";
+  public static couponList = "/app/store_coupon.htm";
+  public static getCoupon = "/app/capture_coupon.htm";
 }

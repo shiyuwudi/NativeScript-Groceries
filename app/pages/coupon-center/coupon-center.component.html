@@ -1,0 +1,51 @@
+<PullToRefresh (refresh)="refreshList($event)">
+  <ListView #listView [items]="couponList" (itemTap)="onItemTap($event)" width="100%"
+            height="100%" itemTemplateSelector="$index==0?'header':'item'" separatorColor="#eeeeee">
+    <ng-template nsTemplateKey="header" let-item="item">
+      <Image src="res://coupon_banner" width="100%" height="auto"></Image>
+    </ng-template>
+    <ng-template nsTemplateKey="item" let-item="item">
+      <StackLayout orientation="vertical" backgroundColor="#eeeeee">
+        <GridLayout rows="115" columns="*,80" class="itemLayout">
+          <GridLayout row="0" col="0" class="bg" rows="auto,*,auto,auto" columns="auto,*"
+                      backgroundImage="res://coupons_left">
+            <StackLayout width="86" orientation="horizontal" rowSpan="4">
+              <Image width="70" height="70" marginLeft="8" [src]="item.coupon_pic"
+                     verticalAlignment="center"></Image>
+            </StackLayout>
+            <Label [text]="item.coupon_name" fontSize="16" color="#333333" row="0" col="1"
+                   class="textPadding"></Label>
+            <GridLayout row="1" col="1" rows="*" columns="*">
+              <Label [color]="item.coupon_name.indexOf('平台')>=0?'#5cc09f':'#5fbaf5'"
+                     verticalAlignment="bottom" row="0" col="0">
+                <FormattedString>
+                  <Span [text]="item.coupon_amount" class="money"></Span>
+                  <Span [text]="'满'+item.coupon_order_amount+'使用'" fontSize="12"></Span>
+                </FormattedString>
+              </Label>
+            </GridLayout>
+            <Label row="2" col="1" class="line" marginRight="5"></Label>
+            <Label row="3" col="1" fontSize="12" color="#a2a2a2"
+                   [text]="item.coupon_begin_time+'至'+item.coupon_end_time"
+                   class="textPadding"></Label>
+          </GridLayout>
+          <AbsoluteLayout row="0" col="1" class="bg"
+                          [backgroundImage]="item.coupon_name.indexOf('平台')>=0?'res://coupons_right_green':'res://coupons_right'">
+            <GridLayout rows="*,auto" columns="80" height="115">
+              <StackLayout horizontalAlignment="center" col="0" row="0">
+                <Label text="剩余" fontSize="12" class="centerText" marginTop="20"></Label>
+                <Label [text]="item.coupon_surplus_amount" fontSize="14" class="centerText"
+                       marginTop="5"></Label>
+              </StackLayout>
+              <StackLayout col="0" row="1" marginBottom="10" marginTop="10">
+                <Label text="立即领取" class="getLabel"
+                       [color]="item.coupon_name.indexOf('平台')>=0?'#5cc09f':'#5fbaf5'"></Label>
+              </StackLayout>
+            </GridLayout>
+          </AbsoluteLayout>
+        </GridLayout>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</PullToRefresh>
+

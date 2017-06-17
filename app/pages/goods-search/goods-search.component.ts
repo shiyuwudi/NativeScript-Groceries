@@ -20,8 +20,8 @@ import {GoodsFilter} from "../../shared/goods/goods-filter";
 import {ActivatedRoute} from "@angular/router";
 import {ListView} from "tns-core-modules/ui/list-view";
 import * as utils from "utils/utils";
-import { Color } from "color";
-import { screen } from "platform";
+import {Color} from "color";
+import {screen} from "platform";
 
 registerElement("PullToRefresh", () => require("nativescript-pulltorefresh").PullToRefresh);
 
@@ -119,7 +119,7 @@ export class GoodsSearchComponent implements OnInit, AfterViewInit {
   }
 
   public get imageSrc() {
-    return this.orderBy ==="goods_current_price"?(this.orderByType==='desc'? "res://pricedown":"res://priceup" ):"res://priceno_cloud";
+    return this.orderBy === "goods_current_price" ? (this.orderByType === "desc" ? "res://pricedown" : "res://priceup" ) : "res://priceno_cloud";
   }
 
   public onItemTap(event) {

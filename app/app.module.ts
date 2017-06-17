@@ -7,6 +7,7 @@ import {AppComponent} from "./app.component";
 import {allComponents, AppRoutingModule} from "./app.routing";
 import {Logger} from "./service/logger.service";
 import {NativeScriptUISideDrawerModule} from "nativescript-telerik-ui/sidedrawer/angular";
+import {NativeScriptUIListViewModule} from "nativescript-telerik-ui/listview/angular";
 import {UserService} from "./shared/user/user.service";
 import {NetworkService} from "./service/main.service";
 
@@ -20,6 +21,7 @@ import {NetworkService} from "./service/main.service";
     NativeScriptHttpModule, // 网络请求
     AppRoutingModule, // 路由
     NativeScriptUISideDrawerModule, // 侧滑菜单
+    NativeScriptUIListViewModule,
   ],
   // app中要用到的所有组件
   declarations: [

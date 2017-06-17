@@ -1,10 +1,10 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {RouterExtensions} from "nativescript-angular/router";
 import {Page} from "ui/page";
-import { screen } from "platform";
-import * as permissions from "nativescript-permissions";
+import {screen} from "platform";
 import * as phone from "nativescript-phone";
 import {ScrollEventData} from "tns-core-modules/ui/scroll-view";
+import {Router} from "@angular/router";
 declare var android;
 
 @Component({
@@ -13,7 +13,7 @@ declare var android;
   templateUrl: "./one-two.component.html",
   styleUrls: ["./one-two.css"],
 })
-export class OneTwoComponent implements OnInit {
+export class OneTwoComponent {
   public url1 = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497627726292&di=182b0bae2c5d1ceec99e600e9ec21d3e&imgtype=0&src=http%3A%2F%2Fimg.tupianzj.com%2Fuploads%2Fallimg%2F160403%2F9-160403122055.jpg";
   public url2 = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497628238878&di=3ec7c39c7474aed8218275a53f32e412&imgtype=0&src=http%3A%2F%2Fimg01.taopic.com%2F150812%2F240442-150Q20U00093.jpg";
   public url3 = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497628238877&di=d3e360a894eac18f65fcf1e2b02882aa&imgtype=0&src=http%3A%2F%2Fwww.pp3.cn%2Fuploads%2F201502%2F2015021111.jpg";
@@ -31,7 +31,7 @@ export class OneTwoComponent implements OnInit {
   ];
   public diameter = screen.mainScreen.widthDIPs / 3 - 20;
   public bgSearch = "#0073BE4B";
-  constructor(private routerExtensions: RouterExtensions, private page: Page) {
+  constructor(private routerExtensions: RouterExtensions, private page: Page, private router: Router) {
     // ...
   }
   public onScroll(ev: ScrollEventData) {
@@ -51,17 +51,11 @@ export class OneTwoComponent implements OnInit {
     }
     this.bgSearch = `#${a}73BE4B`.toUpperCase();
   }
-  public ngOnInit() {
-    // 登录
-    this.login();
-  }
-  public login() {
-    //
-  }
-  public onTap(type: string) {
-    this.routerExtensions[type]();
-  }
   public dialNumber() {
     phone.dial("110", true);
+  }
+  public onTapSlide(i) {
+    const arr = [{a: 1, b: 2}];
+    this.router.navigate(["/home//detail", "1234"]);
   }
 }

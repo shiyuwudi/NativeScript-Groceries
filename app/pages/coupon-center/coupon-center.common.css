@@ -1,0 +1,47 @@
+.itemLayout {
+    margin-right: 8;
+    margin-left: 8;
+    margin-top: 8;
+}
+
+.getLabel {
+    font-size: 10;
+    vertical-align: center;
+    horizontal-align: center;
+    text-align: center;
+    border-radius: 14;
+    border-width: 3;
+    border-color: #44333333;
+    background-color: #ffffff;
+    padding-top: 3;
+    padding-bottom: 3;
+    padding-left: 8;
+    padding-right: 8;
+}
+
+.centerText {
+    horizontal-align: center;
+    color: white;
+}
+
+.bg {
+    background-size: 100% 100%;
+}
+
+
+.line {
+    background-color: #dddddd;
+    width: 100%;
+    height: 1px;
+}
+
+.textPadding {
+    padding-top: 5;
+    padding-bottom: 5;
+}
+
+.money {
+    font-family: "impact";
+    font-size: 25;
+    padding-right: 5;
+}

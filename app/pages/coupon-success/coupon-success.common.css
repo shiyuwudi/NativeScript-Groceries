@@ -1,0 +1,16 @@
+.img{
+    margin-top: 32;
+    horizontal-align: center;
+}
+.text{
+    font-size: 19;
+    margin-top: 32;
+    horizontal-align: center;
+    margin-bottom: 16;
+}
+.imgItem{
+    height: 170;
+    horizontal-align: center;
+    margin-right: 6;
+    margin-left: 6;
+}

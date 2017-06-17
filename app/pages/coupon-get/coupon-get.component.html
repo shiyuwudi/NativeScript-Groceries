@@ -1,0 +1,30 @@
+<StackLayout width="100%" height="100%" backgroundColor="#eeeeee">
+  <GridLayout class="bg" rows="auto,*,auto,auto" columns="auto,*"
+              backgroundImage="res://coupons_left_all" height="115" marginTop="20" marginRight="8"
+              marginLeft="8">
+    <StackLayout width="86" orientation="horizontal" rowSpan="4">
+      <Image width="70" height="70" marginLeft="8" [src]="item.coupon_pic"
+             verticalAlignment="center"></Image>
+    </StackLayout>
+    <Label [text]="item.coupon_name" fontSize="16" color="#333333" row="0" col="1"
+           class="textPadding"></Label>
+    <GridLayout row="1" col="1" rows="*" columns="*">
+      <Label [color]="item.coupon_name.indexOf('平台')>=0?'#5cc09f':'#5fbaf5'"
+             verticalAlignment="bottom" row="0" col="0">
+        <FormattedString>
+          <Span [text]="item.coupon_amount" class="money"></Span>
+          <Span [text]="'满'+item.coupon_order_amount+'使用'" fontSize="12"></Span>
+        </FormattedString>
+      </Label>
+    </GridLayout>
+    <Label row="2" col="1" class="line" marginRight="5"></Label>
+    <Label row="3" col="1" fontSize="12" color="#a2a2a2"
+           [text]="item.coupon_begin_time+'至'+item.coupon_end_time"
+           class="textPadding"></Label>
+  </GridLayout>
+  <GridLayout rows="40" columns="*,8,96" marginLeft="8" marginRight="8" marginTop="16">
+    <TextField hint="请输入验证码" row="0" col="0" class="tf" fontSize="14" [(ngModel)]="inputVerify"></TextField>
+    <Image #image width="96" height="40" row="0" col="2" [src]="imageUrl" (tap)="changeVerify()"></Image>
+  </GridLayout>
+  <button text="立即领取" class="btn" (tap)="submit($event)"></button>
+</StackLayout>

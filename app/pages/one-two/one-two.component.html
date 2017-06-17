@@ -23,16 +23,16 @@
 <ScrollView (scroll)="onScroll($event)">
     <GridLayout rows="auto, auto, auto, *">
         <Carousel row="0" height="200" pageChanged="myChangeEvent" autoPagingInterval="2">
-            <CarouselItem  verticalAlignment="center">
+            <CarouselItem  verticalAlignment="center" (tap)="onTapSlide(0)">
                 <Image [src]="url1" stretch="fill"></Image>
             </CarouselItem>
-            <CarouselItem verticalAlignment="center">
+            <CarouselItem verticalAlignment="center" (tap)="onTapSlide(1)">
                 <Image [src]="url2" stretch="fill"></Image>
             </CarouselItem>
-            <CarouselItem verticalAlignment="center">
+            <CarouselItem verticalAlignment="center" (tap)="onTapSlide(2)">
                 <Image [src]="url3" stretch="fill"></Image>
             </CarouselItem>
-            <CarouselItem verticalAlignment="center">
+            <CarouselItem verticalAlignment="center" (tap)="onTapSlide(3)">
                 <Image [src]="url4" stretch="fill"></Image>
             </CarouselItem>
         </Carousel>
