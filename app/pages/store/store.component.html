@@ -1,0 +1,110 @@
+<ActionBar title="店铺首页">
+    <ActionItem
+            (tap)="jumpClassify()"
+            text="分类"
+            ios.position="right"
+    >
+    </ActionItem>
+</ActionBar>
+<GridLayout rows="76, 50, *">
+    <GridLayout row="0">
+        <Image src="res://storehometopimage" stretch="fill"></Image>
+        <GridLayout verticalAlignment="bottom" class="bottomBar">
+            <GridLayout columns="110, auto, 50, 50">
+                <Image [src]="storeLogo" col="0" stretch="fill"></Image>
+                <StackLayout col="1">
+                    <Label [text]="storeName" textWrap="true" class="storeName"></Label>
+                </StackLayout>
+                <Button [text]="fav===true ? '已收藏' : '收藏'" (tap)="isFavourite()" col="2" [class.favButton]="fav===false" [class.selectFav]="fav===true"></Button>
+                <Label [text]="storeFans" textWrap="true" col="3" class="see" horizontalAlignment="right"></Label>
+            </GridLayout>
+        </GridLayout>
+    </GridLayout>
+    <GridLayout row="1" columns="*,*,*,*" class="filterView">
+        <GridLayout col="0" (tap)="onTap(0)">
+            <GridLayout rows="*, 15">
+                <Image row="0" src="res://apple" class="filter-icon"></Image>
+                <Label row="1" text="店铺首页" textWrap="true" class="filter-title" horizontalAlignment="center" [class.selected]="selectedIndex === 0"></Label>
+            </GridLayout>
+        </GridLayout>
+        <GridLayout col="1" (tap)="onTap(1)">
+            <GridLayout rows="*, 15">
+                <Label row="0" [class.selected]="selectedIndex === 1" class="filter-title" [text]="allGoodsCount" horizontalAlignment="center"></Label>
+                <Label row="1" text="全部宝贝" textWrap="true" class="filter-title" horizontalAlignment="center" [class.selected]="selectedIndex === 1"></Label>
+            </GridLayout>
+        </GridLayout>
+        <GridLayout col="2" (tap)="onTap(2)">
+            <GridLayout rows="*, 15">
+                <Label row="0" [class.selected]="selectedIndex === 2" class="filter-title" [text]="newCount" horizontalAlignment="center"></Label>
+                <Label row="1" text="新品上架" textWrap="true" class="filter-title" horizontalAlignment="center" [class.selected]="selectedIndex === 2"></Label>
+            </GridLayout>
+        </GridLayout>
+        <GridLayout col="3" (tap)="onTap(3)">
+            <GridLayout rows="*, 15">
+                <Image row="0" src="res://apple" class="filter-icon"></Image>
+                <Label row="1" text="联系客服" textWrap="true" class="filter-title" horizontalAlignment="center" [class.selected]="selectedIndex === 3"></Label>
+            </GridLayout>
+        </GridLayout>
+    </GridLayout>
+    <!--人气、销量、价格、新品-->
+    <GridLayout [visibility]="allGoodsHidden ? 'visible' : 'collapsed'" row="2" rows="auto,auto,auto,*">
+        <label class="line" row="0"></label>
+        <GridLayout columns="*,*,*,*", row="1" class="smallFilterbackView">
+            <GridLayout
+                *ngFor="let title of allGoodsFilterAry; let i=index" [col]="i"
+                (tap)="onTapSmall(i)"
+            >
+                <StackLayout>
+                    <Label [text]="title" textWrap="true" horizontalAlignment="center" [class.selectedSmall]="selectedIndexSmall === i"
+                    class="smallFilterLable">
+                    </Label>
+                </StackLayout>
+            </GridLayout>
+        </GridLayout>
+        <label class="line" row="2"></label>
+        <ListView [items]="dataAry" class="list-group"
+            row="3">
+            <ng-template let-item="item">
+            <StackLayout orientation="horizontal" width="100%" height="124">
+                <Image width="116" height="116" [src]="item.goods_main_photo" marginLeft="5"
+                    marginRight="5" marginTop="4" marginLeft="5" marginBottom="4"></Image>
+                <GridLayout rows="auto,*,auto" columns="*" paddingTop="4" paddingRight="5"
+                            paddingBottom="4" height="116">
+                <Label
+                [text]="item.goods_name"
+                maxLines="2"
+                row="0"
+                col="0"
+                textWrap="true"
+                >
+                </Label>
+                <StackLayout orientation="horizontal" row="1" col="0">
+                    <Label [text]="'￥'+item.goods_current_price" color="#ff0000" width="100%"
+                        class="money"></Label>
+                </StackLayout>
+                </GridLayout>
+            </StackLayout>
+            </ng-template>
+        </ListView>
+    </GridLayout>
+    <RadListView [items]="dataAry" row="2" [visibility]="!allGoodsHidden ? 'visible' : 'collapsed'">
+        <ng-template tkListItemTemplate let-item="item">
+            <GridLayout class="listItemTemplateGrid" rows="auto, *">
+                <Label [text]="item.name" textWrap="true" row="0" class="section" [visibility]="item.name !== null || item.index !== null ? 'visible' : 'collapsed'"></Label>
+                <Image [src]="item.goods_main_photo" row="1" class="goodsImg" stretch="fill"></Image>
+                <GridLayout verticalAlignment="bottom"  row="1">
+                    <StackLayout class="labelsStackLayout">
+                        <Label [text]="item.id" textWrap="true"></Label>
+                        <Label [text]="item.goods_name"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </GridLayout>
+        </ng-template>
+
+        <!-- >> angular-listview-item-layouts-grid -->
+        <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" itemHeight="200" spanCount="2"></ListViewGridLayout>
+        <!-- << angular-listview-item-layouts-grid -->
+    </RadListView>
+</GridLayout>
+
+

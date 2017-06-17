@@ -1,0 +1,21 @@
+<ActionBar>
+    <ActionItem>
+        <SearchBar hint="搜索店铺内宝贝" [text]="searchPhrase" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)" 
+                color="white" textFieldBackgroundColor="#dddddd" textFieldHintColor="#666666"
+                >
+        </SearchBar>
+    </ActionItem>
+</ActionBar>
+<RadListView [items]="dataAry" selectionBehavior="Press" (itemSelected)="onItemSelected($event)">
+    <ng-template tkListItemTemplate let-item="item">˝˝
+        <Label class="labelsStackLayout" [text]="item.name"
+        [visibility]="!!item.name ? 'visible' : 'collapsed'"
+        [class.section]="!!item.section"
+        >
+        </Label>        
+   </ng-template>
+
+    <!-- >> angular-listview-item-layouts-grid -->
+    <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" itemHeight="50" spanCount="2"></ListViewGridLayout>
+    <!-- << angular-listview-item-layouts-grid -->
+</RadListView>

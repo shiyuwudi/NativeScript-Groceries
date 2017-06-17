@@ -2,6 +2,7 @@ import {NgModule, NO_ERRORS_SCHEMA} from "@angular/core";
 import {NativeScriptModule} from "nativescript-angular/nativescript.module";
 import {NativeScriptFormsModule} from "nativescript-angular/forms";
 import {NativeScriptHttpModule} from "nativescript-angular/http";
+import { NativeScriptUIListViewModule } from "nativescript-telerik-ui/listview/angular";
 
 import {AppComponent} from "./app.component";
 import {allComponents, AppRoutingModule} from "./app.routing";
@@ -20,6 +21,7 @@ import {NetworkService} from "./service/main.service";
     NativeScriptFormsModule, // 表单
     NativeScriptHttpModule, // 网络请求
     AppRoutingModule, // 路由
+    NativeScriptUIListViewModule,
     NativeScriptUISideDrawerModule, // 侧滑菜单
     NativeScriptUIListViewModule,
   ],

@@ -1,0 +1,12 @@
+.labelsStackLayout {
+  margin: 3;
+  background-color: white;
+}
+.section {
+  background-color: #eeeeee;
+  padding-left: 3;
+  font-size: 13;
+}
+.searchBar {
+  margin: 60;
+}

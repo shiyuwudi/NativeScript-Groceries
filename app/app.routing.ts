@@ -14,6 +14,9 @@ import {HomeComponent} from "./home/home.component";
 import {OneOneComponent} from "./pages/one-one/one-one.component";
 import {OneTwoComponent} from "./pages/one-two/one-two.component";
 import {MyActionBarComponent} from "./pages/action-bar/action-bar.component";
+import { StoreComponent } from "./pages/store/store.component";
+import { StoreClassifyComponent } from "./pages/store/store-classify/store-classify.component";
+import { MessageComponent } from "./pages/message/message.component";
 import {GoodsSearchComponent} from "./pages/goods-search/goods-search.component";
 import {ViewPagerComponent} from "./pages/view-pager/view-pager.component";
 import {LinesLabelDirective} from "./pages/lines-label/lines-label.component";
@@ -23,6 +26,7 @@ import {CouponCenterComponent} from "./pages/coupon-center/coupon-center.compone
 import {CouponGetComponent} from "./pages/coupon-get/coupon-get.component";
 import {CouponSuccessComponent} from "./pages/coupon-success/coupon-success.component";
 import {DetailComponent} from "./pages/detail/detail.component";
+import {ClassifyComponent} from "./pages/classify/classify.component";
 
 // 要跳转的页面
 const routes: Routes = [
@@ -45,7 +49,7 @@ const routes: Routes = [
           },
           {
             path: "onetwo",
-            component: OneTwoComponent,
+            component: StoreComponent,
           },
           {
             path: "goodsSearch",
@@ -80,15 +84,15 @@ const routes: Routes = [
       },
       {
         path: "two",
-        component: TwoComponent,
+        component: StoreClassifyComponent,
       },
       {
         path: "three",
-        component: ThreeComponent,
+        component: StoreComponent,
       },
       {
         path: "four",
-        component: FourComponent,
+        component: ClassifyComponent,
       },
       {
         path: "five",
@@ -111,11 +115,15 @@ export const allComponents = [
   OneOneComponent,
   OneTwoComponent,
   MyActionBarComponent,
+  StoreComponent,
+  MessageComponent,
+  StoreClassifyComponent,
   GoodsSearchComponent,
   ViewPagerComponent,
   LinesLabelDirective,
   GoodsFilterComponent,
   BrandListComponent,
+  ClassifyComponent,
   CouponCenterComponent,
   CouponGetComponent,
   CouponSuccessComponent,

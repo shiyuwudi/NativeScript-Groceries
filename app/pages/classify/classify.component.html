@@ -1,0 +1,30 @@
+<ActionBar title="分类">
+</ActionBar>
+<GridLayout columns="120">
+  <ListView [items]="classifyAry"
+            col="0" (itemTap)="onItemTap($event)">
+      <ng-template let-item="item" let-i="index">
+        <StackLayout>
+              <Label [text]="item.className" width="100%" height="60"
+              class="classifyName" [class.clickStyle]="selectIndex === i"></Label>
+        </StackLayout>
+      </ng-template>
+  </ListView>
+  <RadListView [items]="classifySecondAry" col="1">
+        <ng-template tkListItemTemplate let-item="item">
+            <GridLayout rows="auto, *">
+                <Label [text]="item.name" textWrap="true" row="0" [visibility]="item.name !== null || item.index !== null ? 'visible' : 'collapsed'"></Label>
+                <Image [src]="item.icon_path" row="1"></Image>
+                <GridLayout verticalAlignment="bottom"  row="1">
+                    <StackLayout class="labelsStackLayout">
+                        <Label [text]="item.className"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </GridLayout>
+        </ng-template>
+
+        <!-- >> angular-listview-item-layouts-grid -->
+        <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" itemHeight="200" spanCount="2"></ListViewGridLayout>
+        <!-- << angular-listview-item-layouts-grid -->
+ </RadListView>  
+</GridLayout>

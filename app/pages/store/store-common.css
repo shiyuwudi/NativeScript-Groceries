@@ -1,0 +1,76 @@
+.listItemTemplateGrid {
+    background-color: #f0f0f0;
+    margin-bottom: 2;
+    margin-right: 2;
+}
+
+.labelsStackLayout {
+    background-color: rgb(255, 255, 255, 0.7);
+    padding-top: 8;
+    padding-bottom: 8;
+    padding-left: 16;
+    padding-right: 16;
+}
+.backgroundImg {
+    background-image: "res://apple";
+}
+.section {
+    /*background-color: white;
+    margin-left: 30;*/
+    padding-left: 16;
+    font-size: 14;
+    padding: 5;
+}
+.goodsImg {
+    height: 200;
+}
+.bottomBar {
+    height: 30;
+}
+.filter-icon {
+    width: 20;
+    height: 20;
+    margin: 3;
+}
+
+.filter-title {
+    font-size: 14;
+}
+
+.selected {
+    color: red;
+}
+.selectedSmall {
+    color: red;
+}
+.filterView {
+    background-color: white;
+}
+.storeName {
+    color: white;
+}
+.see {
+    color: white;
+}
+.favButton {
+    color: white;
+    background-color: red;
+}
+.selectFav {
+    color: white;
+    background-color: black;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #999999;
+}
+.smallFilterbackView {
+    background-color: white;
+}
+.smallFilterLable {
+    margin: 10;
+}
+.list-group {
+    height: 100%;
+}

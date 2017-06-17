@@ -1,0 +1,14 @@
+.classifyName {
+  padding-left: 20;
+}
+.labelsStackLayout {
+    background-color: rgb(255, 255, 255, 0.7);
+    padding-top: 8;
+    padding-bottom: 8;
+    padding-left: 16;
+    padding-right: 16;
+}
+.clickStyle {
+  background-color: #f0f0f0;
+  color: red;
+}
